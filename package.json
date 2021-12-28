@@ -1,0 +1,39 @@
+{
+  "name": "backend",
+  "finalName": "backend",
+  "version": "1.0.0",
+  "description": "backend-homebeer",
+  "main": "app.ts",
+  "scripts": {
+    "start": "tsc --project tsconfig.json && ts-node -r tsconfig-paths/register src/app.ts",
+    "lint": "eslint -c .eslintrc.json --ext .ts ./src"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "cors": "2.8.5",
+    "eslint-config-prettier": "7.0.0",
+    "express": "4.17.1",
+    "mongoose": "^6.1.2",
+    "nodemailer": "6.7.2",
+    "uuid": "8.3.2"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.12",
+    "@types/express": "4.17.13",
+    "@types/mongoose": "5.11.97",
+    "@types/nodemailer": "6.4.4",
+    "@types/uuid": "8.3.3",
+    "@typescript-eslint/eslint-plugin": "5.8.0",
+    "@typescript-eslint/parser": "5.8.0",
+    "eslint": "7.15.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsdoc": "30.7.8",
+    "eslint-plugin-prefer-arrow": "1.2.2",
+    "prettier": "1.18.2",
+    "pretty-format": "24.9.0",
+    "ts-node": "9.1.1",
+    "tsconfig-paths": "3.9.0",
+    "typescript": "4.5.4"
+  }
+}
