@@ -1,4 +1,4 @@
-export interface ICriarUsuarioRequestDTO {
+export interface ICriarUsuarioRequest {
   nomeCompleto: string;
   email: string;
   senha: string;

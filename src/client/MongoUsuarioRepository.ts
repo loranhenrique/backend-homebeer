@@ -2,7 +2,7 @@ import { IUsuarioBoundary, UsuarioEntity } from '@core';
 import { UsuarioModel } from '@database';
 
 export class MongoUsuarioRepository implements IUsuarioBoundary {
-  public async procurarUsuario(email: string): Promise<UsuarioEntity> {
+  public async buscarUsuario(email: string): Promise<UsuarioEntity> {
     const usuario = await UsuarioModel.findOne({ email });
 
     if (!usuario) return null;
