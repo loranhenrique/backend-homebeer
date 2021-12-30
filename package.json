@@ -1,8 +1,8 @@
 {
-  "name": "backend",
-  "finalName": "backend",
+  "name": "homebeer-backend",
+  "finalName": "homebeer-backend",
   "version": "1.0.0",
-  "description": "backend-homebeer",
+  "description": "homebeer-backend",
   "main": "app.ts",
   "scripts": {
     "start": "tsc --project tsconfig.json && ts-node -r tsconfig-paths/register src/app.ts",
