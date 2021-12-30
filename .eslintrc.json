@@ -61,7 +61,12 @@
         "accessibility": "explicit"
       }
     ],
-    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": [
+      "error",
+      {
+        "allowArgumentsExplicitlyTypedAsAny": true
+      }
+    ],
     "@typescript-eslint/member-delimiter-style": [
       "off",
       {
