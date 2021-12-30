@@ -1,4 +1,5 @@
 import { IParceiro } from './IParceiro';
+import { IProduto } from './IProduto';
 import { IUsuario } from './IUsuario';
 
-export { IUsuario, IParceiro };
+export { IUsuario, IParceiro, IProduto };
