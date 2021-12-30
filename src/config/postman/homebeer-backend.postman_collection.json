@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "57bb415b-bad3-46ed-b49e-5d909c705662",
+		"name": "homebeer-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/registrar",
+			"item": [
+				{
+					"name": "/registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomeCompleto\": \"Isabely Yamamoto\",\n    \"email\": \"isayamamoto@gmail.com\",\n    \"senha\": 123456,\n    \"cpf\": 11111111111,\n    \"telefone\": 19999999999,\n    \"dataNascimento\": \"21/07/1999\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "/autenticar",
+			"item": [
+				{
+					"name": "/autenticar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"loranteixeira@icloud.com\",\n    \"senha\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/autenticar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"autenticar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
