@@ -1,4 +1,4 @@
-import { UsuarioInterface } from '@database';
+import { IUsuario } from '@database';
 import { model, Schema } from 'mongoose';
 
 const UsuarioSchema: Schema = new Schema({
@@ -12,4 +12,4 @@ const UsuarioSchema: Schema = new Schema({
   ativo: Boolean,
 });
 
-export default model<UsuarioInterface>('UsuarioModel', UsuarioSchema);
+export default model<IUsuario>('UsuarioModel', UsuarioSchema);

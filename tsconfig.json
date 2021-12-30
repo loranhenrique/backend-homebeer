@@ -27,7 +27,7 @@
       "@entrypoint": ["src/entrypoint/index.ts"],
       "@database": ["src/database/index.ts"],
       "@core": ["src/core/index.ts"],
-      "@client": ["src/client/index.ts"],
+      "@repository": ["src/repository/index.ts"],
       "@adapter": ["src/adapter/index.ts"],
       "@providers": ["src/providers/index.ts"],
       "@server": ["src/server/index.ts"]

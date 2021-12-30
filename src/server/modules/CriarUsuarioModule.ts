@@ -1,7 +1,7 @@
-import { MongoUsuarioRepository } from '@client';
 import { CriarUsuarioUseCase } from '@core';
 import { CriarUsuarioController } from '@entrypoint';
 import { MailtrapProvider } from '@providers';
+import { MongoUsuarioRepository } from '@repository';
 
 export const criarUsuarioModule = (): CriarUsuarioController => {
   const mongoUsuarioRepository = new MongoUsuarioRepository();

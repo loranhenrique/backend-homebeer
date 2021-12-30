@@ -1,3 +1,3 @@
-import { UsuarioInterface } from './UsuarioInterface';
+import { IUsuario } from './IUsuario';
 
-export { UsuarioInterface };
+export { IUsuario };
