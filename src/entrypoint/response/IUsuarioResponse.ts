@@ -1,4 +1,4 @@
-export default interface IUsuarioResponse {
+export interface IUsuarioResponse {
   id: string;
   nomeCompleto: string;
   email: string;

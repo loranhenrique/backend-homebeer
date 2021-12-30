@@ -1,3 +1,3 @@
-import IUsuarioBoundary from './IUsuarioBoundary';
+import { IUsuarioBoundary } from './IUsuarioBoundary';
 
 export { IUsuarioBoundary };

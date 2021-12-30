@@ -1,4 +1,4 @@
-export default interface IAutenticarUsuarioRequest {
+export interface IAutenticarUsuarioRequest {
   email: string;
   senha: string;
 }

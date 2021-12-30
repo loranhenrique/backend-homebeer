@@ -1,3 +1,3 @@
-import IUsuarioResponse from './IUsuarioResponse';
+import { IUsuarioResponse } from './IUsuarioResponse';
 
 export { IUsuarioResponse };
