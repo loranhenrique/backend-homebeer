@@ -12,13 +12,25 @@ export default class UsuarioEntity {
 
   public constructor(props: Partial<UsuarioEntity>) {
     Object.assign(this, props);
+  }
 
-    if (!props.id) {
-      this.id = uuidv4();
-    }
-
-    if (!props.ativo) {
-      this.ativo = true;
-    }
+  public static criarUsuario({
+    nomeCompleto,
+    email,
+    senha,
+    cpf,
+    telefone,
+    dataNascimento,
+  }: Partial<UsuarioEntity>): UsuarioEntity {
+    return new UsuarioEntity({
+      nomeCompleto,
+      email,
+      senha,
+      cpf,
+      telefone,
+      dataNascimento,
+      ativo: true,
+      id: uuidv4(),
+    });
   }
 }

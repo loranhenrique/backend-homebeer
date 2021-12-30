@@ -6,7 +6,7 @@ export default class CriarParceiroUseCase {
   public constructor(private iParceiroBoundary: IParceiroBoundary, private iEmailProvider: IEmailProvider) {}
 
   public async execute(request: ICriarParceiroRequest): Promise<void> {
-    const parceiro = ParceiroEntity.criarParceiro({ ...request });
+    const parceiro = ParceiroEntity.criarParceiro(request);
     const parceiroExiste: ParceiroEntity = await this.iParceiroBoundary.buscarParceiro(parceiro.cnpj);
     if (parceiroExiste) throw new Error('Parceiro já existe.');
 
