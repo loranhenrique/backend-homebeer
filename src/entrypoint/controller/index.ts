@@ -1,4 +1,5 @@
 import { AutenticarUsuarioController } from './AutenticarUsuarioController';
+import { CriarParceiroController } from './CriarParceiroController';
 import { CriarUsuarioController } from './CriarUsuarioController';
 
-export { CriarUsuarioController, AutenticarUsuarioController };
+export { CriarUsuarioController, AutenticarUsuarioController, CriarParceiroController };

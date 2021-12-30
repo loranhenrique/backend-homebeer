@@ -1,10 +1,11 @@
 import { expressAdapter } from '@adapter';
-import { autenticarUsuarioModule, criarUsuarioModule } from '@server';
+import { autenticarUsuarioModule, criarParceiroModule, criarUsuarioModule } from '@server';
 import { Router } from 'express';
 
 const router = Router();
 
-router.post('/registrar', expressAdapter(criarUsuarioModule));
-router.post('/autenticar', expressAdapter(autenticarUsuarioModule));
+router.post('/usuario/registrar', expressAdapter(criarUsuarioModule));
+router.post('/usuario/autenticar', expressAdapter(autenticarUsuarioModule));
+router.post('/parceiro/registrar', expressAdapter(criarParceiroModule));
 
 export { router };
