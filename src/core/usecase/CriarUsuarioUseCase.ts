@@ -6,11 +6,11 @@ export default class CriarUsuarioUseCase {
   public constructor(private iUsuarioBoundary: IUsuarioBoundary, private iEmailProvider: IEmailProvider) {}
 
   public async execute(request: ICriarUsuarioRequest): Promise<void> {
-    const usuario = UsuarioEntity.criarUsuario(request);
-    const usuarioExiste: UsuarioEntity = await this.iUsuarioBoundary.buscarUsuario(usuario.email);
+    const usuarioExiste: UsuarioEntity = await this.iUsuarioBoundary.buscarUsuario(request.email);
     if (usuarioExiste) throw new Error('Usuario já existe.');
 
-    await this.iUsuarioBoundary.salvarUsuario(usuario);
-    await this.iEmailProvider.enviarEmail(request.nomeCompleto, request.email);
+    const usuarioEntity = UsuarioEntity.criarUsuario(request);
+    await this.iUsuarioBoundary.salvarUsuario(usuarioEntity);
+    await this.iEmailProvider.enviarEmail(usuarioEntity.nomeCompleto, usuarioEntity.email);
   }
 }

@@ -6,16 +6,16 @@ export default class CriarParceiroUseCase {
   public constructor(private iParceiroBoundary: IParceiroBoundary, private iEmailProvider: IEmailProvider) {}
 
   public async execute(request: ICriarParceiroRequest): Promise<void> {
-    const parceiroRequest = ParceiroEntity.criarParceiro(request);
     const parceiros: ParceiroEntity[] = await this.iParceiroBoundary.buscarParceiro();
-    const parceiroExiste: ParceiroEntity = this.validarParceiro(parceiros, parceiroRequest);
+    const parceiroExiste: ParceiroEntity = this.validarParceiro(parceiros, request.cnpj);
     if (parceiroExiste) throw new Error('Parceiro já existe.');
 
-    await this.iParceiroBoundary.salvarParceiro(parceiroRequest);
-    await this.iEmailProvider.enviarEmail(parceiroRequest.nomeCompletoDono, parceiroRequest.email);
+    const parceiroEntity = ParceiroEntity.criarParceiro(request);
+    await this.iParceiroBoundary.salvarParceiro(parceiroEntity);
+    await this.iEmailProvider.enviarEmail(parceiroEntity.nomeCompletoDono, parceiroEntity.email);
   }
 
-  private validarParceiro(parceiros: ParceiroEntity[], parceiroRequest: ParceiroEntity): ParceiroEntity {
-    return parceiros.find((parceiro: ParceiroEntity) => parceiro.cnpj === parceiroRequest.cnpj);
+  private validarParceiro(parceiros: ParceiroEntity[], cnpjParceiroRequest: number): ParceiroEntity {
+    return parceiros.find((parceiro: ParceiroEntity) => parceiro.cnpj === cnpjParceiroRequest);
   }
 }
