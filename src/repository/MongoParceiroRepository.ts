@@ -1,13 +1,13 @@
 import { IParceiroBoundary, ParceiroEntity } from '@core';
-import { ParceiroModel } from '@database';
+import { IParceiro, ParceiroModel } from '@database';
 
 export class MongoParceiroRepository implements IParceiroBoundary {
-  public async buscarParceiro(cnpj: number): Promise<ParceiroEntity> {
-    const parceiro = await ParceiroModel.findOne({ cnpj });
+  public async buscarParceiro(): Promise<ParceiroEntity[]> {
+    const parceiros: IParceiro[] = await ParceiroModel.find();
 
-    if (!parceiro) return null;
+    if (!parceiros) return null;
 
-    return {
+    return parceiros.map((parceiro: IParceiro) => ({
       id: parceiro._id,
       ativo: parceiro.ativo,
       nomeCompletoDono: parceiro.nomeCompletoDono,
@@ -18,7 +18,7 @@ export class MongoParceiroRepository implements IParceiroBoundary {
       nomeLoja: parceiro.nomeLoja,
       descricaoLoja: parceiro.descricaoLoja,
       cnpj: parceiro.cnpj,
-    };
+    }));
   }
 
   public async salvarParceiro(parceiro: ParceiroEntity): Promise<void> {
