@@ -1,12 +1,11 @@
 import { BuscarParceiroUseCase, ParceiroEntity } from '@core';
-import { IBuscarParceiroRequest, IParceiroResponse } from '@entrypoint';
+import { IParceiroResponse } from '@entrypoint';
 
 export class BuscarParceiroController {
   public constructor(private usecase: BuscarParceiroUseCase) {}
 
-  public async handle(queryParams: IBuscarParceiroRequest): Promise<IParceiroResponse[]> {
-    const request: string = queryParams ? queryParams.idParceiro : '';
-    const parceiros: ParceiroEntity[] = await this.usecase.execute(request);
+  public async handle(): Promise<IParceiroResponse[]> {
+    const parceiros: ParceiroEntity[] = await this.usecase.execute();
 
     return parceiros.map((parceiro: ParceiroEntity) => ({
       id: parceiro.id,
