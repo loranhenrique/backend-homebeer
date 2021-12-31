@@ -113,13 +113,6 @@
 							"port": "3333",
 							"path": [
 								"parceiro"
-							],
-							"query": [
-								{
-									"key": "idParceiro",
-									"value": "8ced06df-b44b-404c-9bed-00e1473c13f",
-									"disabled": true
-								}
 							]
 						}
 					},
