@@ -10,15 +10,14 @@ export default class AutenticarUsuarioUseCase {
   }
 
   private validarUsuario(usuarioEncontrado: UsuarioEntity, senhaRequest: string): void {
-    const existeMensagemErro = this.definirMensagemErro(usuarioEncontrado, senhaRequest);
-    if (existeMensagemErro) throw new Error(existeMensagemErro);
+    const existeErro = this.existeErro(usuarioEncontrado, senhaRequest);
+    if (existeErro) throw new Error(existeErro);
   }
 
-  private definirMensagemErro(usuarioEncontrado: UsuarioEntity, senhaRequest: string): string {
+  private existeErro(usuarioEncontrado: UsuarioEntity, senhaRequest: string): string {
     if (!usuarioEncontrado) return 'Usuario não foi encontrado.';
     if (!usuarioEncontrado.ativo) return 'Usuario está inativo.';
     if (usuarioEncontrado.senha !== senhaRequest) return 'Usuario/senha inválidos.';
-
     return '';
   }
 }

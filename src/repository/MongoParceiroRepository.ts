@@ -5,7 +5,7 @@ export class MongoParceiroRepository implements IParceiroBoundary {
   public async buscarParceiro(): Promise<ParceiroEntity[]> {
     const parceiros: IParceiro[] = await ParceiroModel.find();
 
-    if (!parceiros) return null;
+    if (!parceiros) return [];
 
     return parceiros.map((parceiro: IParceiro) => ({
       id: parceiro._id,
