@@ -119,6 +119,64 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "/produto",
+			"item": [
+				{
+					"name": "/produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idParceiro\": \"6bc3d22e-ddfe-42d0-b288-a1fd713d2db4\",\n    \"imagem\": \"imagem/base64\",\n    \"nome\": \"Cerveja artesanal teste\",\n    \"descricao\": \"Descricao da cerveja artesanal teste\",\n    \"preco\": 21.90\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/produto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/produto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/produto?idParceiro=6bc3d22e-ddfe-42d0-b288-a1fd713d2db4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"produto"
+							],
+							"query": [
+								{
+									"key": "idParceiro",
+									"value": "6bc3d22e-ddfe-42d0-b288-a1fd713d2db4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
