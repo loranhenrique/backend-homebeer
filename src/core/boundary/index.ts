@@ -1,4 +1,5 @@
 import { IParceiroBoundary } from './IParceiroBoundary';
+import { IProdutoBoundary } from './IProdutoBoundary';
 import { IUsuarioBoundary } from './IUsuarioBoundary';
 
-export { IUsuarioBoundary, IParceiroBoundary };
+export { IUsuarioBoundary, IParceiroBoundary, IProdutoBoundary };
