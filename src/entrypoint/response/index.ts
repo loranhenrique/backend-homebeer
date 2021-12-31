@@ -1,3 +1,4 @@
+import { IParceiroResponse } from './IParceiroResponse';
 import { IUsuarioResponse } from './IUsuarioResponse';
 
-export { IUsuarioResponse };
+export { IUsuarioResponse, IParceiroResponse };

@@ -35,7 +35,7 @@ export default class ParceiroEntity {
       nomeLoja,
       descricaoLoja,
       cnpj,
-      ativo: true,
+      ativo: false,
       id: uuidv4(),
     });
   }
