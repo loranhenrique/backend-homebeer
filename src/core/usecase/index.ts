@@ -1,4 +1,5 @@
 import AutenticarUsuarioUseCase from './AutenticarUsuarioUseCase';
+import BuscarCarrinhoUseCase from './BuscarCarrinhoUseCase';
 import BuscarParceiroUseCase from './BuscarParceiroUseCase';
 import BuscarProdutoUseCase from './BuscarProdutoUseCase';
 import CriarParceiroUseCase from './CriarParceiroUseCase';
@@ -14,4 +15,5 @@ export {
   CriarProdutoUseCase,
   BuscarProdutoUseCase,
   SalvarCarrinhoUseCase,
+  BuscarCarrinhoUseCase,
 };

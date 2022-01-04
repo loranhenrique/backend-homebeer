@@ -1,14 +1,15 @@
 import { expressAdapter } from '@adapter';
 import {
   autenticarUsuarioModule,
+  buscarCarrinhoModule,
   buscarParceiroModule,
   buscarProdutoModule,
   criarParceiroModule,
   criarProdutoModule,
   criarUsuarioModule,
+  salvarCarrinhoModule,
 } from '@server';
 import { Router } from 'express';
-import { salvarCarrinhoModule } from '../modules/SalvarCarrinhoModule';
 
 const router = Router();
 
@@ -19,5 +20,6 @@ router.get('/parceiro', expressAdapter(buscarParceiroModule));
 router.post('/produto', expressAdapter(criarProdutoModule));
 router.get('/produto', expressAdapter(buscarProdutoModule));
 router.post('/carrinho', expressAdapter(salvarCarrinhoModule));
+router.get('/carrinho', expressAdapter(buscarCarrinhoModule));
 
 export { router };

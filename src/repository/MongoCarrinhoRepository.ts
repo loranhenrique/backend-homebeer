@@ -2,15 +2,16 @@ import { CarrinhoEntity, CompraEntity, ICarrinhoBoundary } from '@core';
 import { CarrinhoModel, ICarrinho } from '@database';
 
 export class MongoCarrinhoRepository implements ICarrinhoBoundary {
-  public async buscarCarrinho(_idUsuario: string): Promise<CarrinhoEntity> {
-    const carrinho: ICarrinho[] = await CarrinhoModel.find({ usuario: _idUsuario })
+  public async buscarCarrinho(idUsuario: string): Promise<CarrinhoEntity> {
+    const carrinho: ICarrinho[] = await CarrinhoModel.find({ usuario: idUsuario })
       .populate('usuario')
       .populate('produto')
       .populate('parceiro');
 
+    if (carrinho.length < 1) return { idUsuario, compras: [] };
+
     return {
-      idUsuario: carrinho[0].usuario._id,
-      ativoUsuario: carrinho[0].usuario.ativo,
+      idUsuario: idUsuario,
       compras: this.criarCompras(carrinho),
     };
   }
@@ -29,7 +30,7 @@ export class MongoCarrinhoRepository implements ICarrinhoBoundary {
     }));
   }
 
-  public async salvarCarrinho(_idUsuario: string, _idProduto: string, _idParceiro: string): Promise<void> {
-    await CarrinhoModel.create({ usuario: _idUsuario, produto: _idProduto, parceiro: _idParceiro });
+  public async salvarCarrinho(idUsuario: string, idProduto: string, idParceiro: string): Promise<void> {
+    await CarrinhoModel.create({ usuario: idUsuario, produto: idProduto, parceiro: idParceiro });
   }
 }
