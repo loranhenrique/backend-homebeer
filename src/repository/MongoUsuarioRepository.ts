@@ -1,9 +1,11 @@
 import { IUsuarioBoundary, UsuarioEntity } from '@core';
-import { UsuarioModel } from '@database';
+import { IUsuario, UsuarioModel } from '@database';
 
 export class MongoUsuarioRepository implements IUsuarioBoundary {
-  public async buscarUsuario(email: string): Promise<UsuarioEntity> {
-    const usuario = await UsuarioModel.findOne({ email });
+  public async buscarUsuario(email: string, idUsuario?: string): Promise<UsuarioEntity> {
+    const usuario: IUsuario = email
+      ? await UsuarioModel.findOne({ email })
+      : await UsuarioModel.findOne({ _id: idUsuario });
 
     if (!usuario) return null;
 

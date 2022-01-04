@@ -3,6 +3,7 @@ import { IParceiroRequest } from './IParceiroRequest';
 import { ICriarParceiroRequest } from './ICriarParceiroRequest';
 import { ICriarProdutoRequest } from './ICriarProdutoRequest';
 import { ICriarUsuarioRequest } from './ICriarUsuarioRequest';
+import { ISalvarCarrinhoRequest } from './ISalvarCarrinhoRequest';
 
 export {
   ICriarUsuarioRequest,
@@ -10,4 +11,5 @@ export {
   ICriarParceiroRequest,
   IParceiroRequest,
   ICriarProdutoRequest,
+  ISalvarCarrinhoRequest,
 };

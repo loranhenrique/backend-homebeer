@@ -8,6 +8,7 @@ import {
   criarUsuarioModule,
 } from '@server';
 import { Router } from 'express';
+import { salvarCarrinhoModule } from '../modules/SalvarCarrinhoModule';
 
 const router = Router();
 
@@ -17,5 +18,6 @@ router.post('/parceiro', expressAdapter(criarParceiroModule));
 router.get('/parceiro', expressAdapter(buscarParceiroModule));
 router.post('/produto', expressAdapter(criarProdutoModule));
 router.get('/produto', expressAdapter(buscarProdutoModule));
+router.post('/carrinho', expressAdapter(salvarCarrinhoModule));
 
 export { router };

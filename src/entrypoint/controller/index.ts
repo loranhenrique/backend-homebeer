@@ -4,6 +4,7 @@ import { BuscarProdutoController } from './BuscarProdutoController';
 import { CriarParceiroController } from './CriarParceiroController';
 import { CriarProdutoController } from './CriarProdutoController';
 import { CriarUsuarioController } from './CriarUsuarioController';
+import { SalvarCarrinhoController } from './SalvarCarrinhoController';
 
 export {
   CriarUsuarioController,
@@ -12,4 +13,5 @@ export {
   BuscarParceiroController,
   CriarProdutoController,
   BuscarProdutoController,
+  SalvarCarrinhoController,
 };

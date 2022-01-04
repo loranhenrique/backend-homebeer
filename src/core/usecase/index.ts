@@ -4,6 +4,7 @@ import BuscarProdutoUseCase from './BuscarProdutoUseCase';
 import CriarParceiroUseCase from './CriarParceiroUseCase';
 import CriarProdutoUseCase from './CriarProdutoUseCase';
 import CriarUsuarioUseCase from './CriarUsuarioUseCase';
+import SalvarCarrinhoUseCase from './SalvarCarrinhoUseCase';
 
 export {
   CriarUsuarioUseCase,
@@ -12,4 +13,5 @@ export {
   BuscarParceiroUseCase,
   CriarProdutoUseCase,
   BuscarProdutoUseCase,
+  SalvarCarrinhoUseCase,
 };
