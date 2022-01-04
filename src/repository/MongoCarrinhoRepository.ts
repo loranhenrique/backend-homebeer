@@ -2,6 +2,14 @@ import { CarrinhoEntity, CompraEntity, ICarrinhoBoundary } from '@core';
 import { CarrinhoModel, ICarrinho } from '@database';
 
 export class MongoCarrinhoRepository implements ICarrinhoBoundary {
+  public async deletarCarrinho(idUsuario: string, idProduto: string, idParceiro: string): Promise<void> {
+    await CarrinhoModel.findOneAndDelete({
+      usuario: idUsuario,
+      produto: idProduto,
+      parceiro: idParceiro,
+    });
+  }
+
   public async buscarCarrinho(idUsuario: string): Promise<CarrinhoEntity> {
     const carrinho: ICarrinho[] = await CarrinhoModel.find({ usuario: idUsuario })
       .populate('usuario')

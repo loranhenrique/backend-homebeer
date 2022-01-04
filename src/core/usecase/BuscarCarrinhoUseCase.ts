@@ -23,7 +23,9 @@ export default class BuscarCarrinhoUseCase {
     let comprasAtivas: CompraEntity[] = [];
 
     carrinho.compras.forEach((item: CompraEntity) => {
-      if (item.ativoProduto && item.ativoParceiro) comprasAtivas.push(item);
+      item.ativoProduto && item.ativoParceiro
+        ? comprasAtivas.push(item)
+        : this.iCarrinhoBoundary.deletarCarrinho(carrinho.idUsuario, item.idProduto, item.idParceiro);
     });
 
     return CarrinhoEntity.buscarCarrinho({ idUsuario: carrinho.idUsuario, compras: comprasAtivas });
