@@ -22,6 +22,10 @@ export class MongoFavoritoRepository implements IFavoritoBoundary {
     };
   }
 
+  public async salvarFavorito(idUsuario: string, idParceiro: string): Promise<void> {
+    await FavoritoModel.create({ usuario: idUsuario, parceiro: idParceiro });
+  }
+
   private criarFavoritos(favoritos: IFavorito[]): ParceiroEntity[] {
     return favoritos.map((itemFavorito: IFavorito) => ({
       id: itemFavorito.parceiro._id,
@@ -35,9 +39,5 @@ export class MongoFavoritoRepository implements IFavoritoBoundary {
       descricaoLoja: itemFavorito.parceiro.descricaoLoja,
       cnpj: itemFavorito.parceiro.cnpj,
     }));
-  }
-
-  public async salvarFavorito(idUsuario: string, idParceiro: string): Promise<void> {
-    await FavoritoModel.create({ usuario: idUsuario, parceiro: idParceiro });
   }
 }

@@ -11,7 +11,7 @@ export default class BuscarParceiroUseCase {
   }
 
   private retirarParceirosInativos(parceiros: ParceiroEntity[]): ParceiroEntity[] {
-    let parceirosAtivos: ParceiroEntity[] = [];
+    const parceirosAtivos: ParceiroEntity[] = [];
 
     parceiros.forEach((parceiro: ParceiroEntity) => {
       if (parceiro.ativo) parceirosAtivos.push(parceiro);

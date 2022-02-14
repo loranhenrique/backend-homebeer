@@ -21,7 +21,7 @@ export default class BuscarFavoritoUseCase {
   }
 
   private retirarParceirosInativos(favorito: FavoritoEntity): FavoritoEntity {
-    let favoritosAtivos: ParceiroEntity[] = [];
+    const favoritosAtivos: ParceiroEntity[] = [];
 
     favorito.favoritos.forEach((item: ParceiroEntity) => {
       item.ativo ? favoritosAtivos.push(item) : this.iFavoritoBoundary.deletarFavorito(favorito.idUsuario, item.id);

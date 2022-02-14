@@ -23,7 +23,7 @@ export default class BuscarProdutoUseCase {
   }
 
   private retirarProdutosInativos(produtos: ProdutoEntity[]): ProdutoEntity[] {
-    let produtosAtivos: ProdutoEntity[] = [];
+    const produtosAtivos: ProdutoEntity[] = [];
 
     produtos.forEach((produto: ProdutoEntity) => {
       if (produto.ativo) produtosAtivos.push(produto);

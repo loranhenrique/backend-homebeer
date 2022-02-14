@@ -24,6 +24,10 @@ export class MongoCarrinhoRepository implements ICarrinhoBoundary {
     };
   }
 
+  public async salvarCarrinho(idUsuario: string, idProduto: string, idParceiro: string): Promise<void> {
+    await CarrinhoModel.create({ usuario: idUsuario, produto: idProduto, parceiro: idParceiro });
+  }
+
   private criarCompras(carrinho: ICarrinho[]): CompraEntity[] {
     return carrinho.map((item: ICarrinho) => ({
       idParceiro: item.parceiro._id,
@@ -36,9 +40,5 @@ export class MongoCarrinhoRepository implements ICarrinhoBoundary {
       imagemProduto: item.produto.imagem,
       precoProduto: item.produto.preco,
     }));
-  }
-
-  public async salvarCarrinho(idUsuario: string, idProduto: string, idParceiro: string): Promise<void> {
-    await CarrinhoModel.create({ usuario: idUsuario, produto: idProduto, parceiro: idParceiro });
   }
 }

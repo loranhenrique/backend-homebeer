@@ -20,7 +20,7 @@ export default class BuscarCarrinhoUseCase {
   }
 
   private retirarProdutosInativos(carrinho: CarrinhoEntity): CarrinhoEntity {
-    let comprasAtivas: CompraEntity[] = [];
+    const comprasAtivas: CompraEntity[] = [];
 
     carrinho.compras.forEach((item: CompraEntity) => {
       item.ativoProduto && item.ativoParceiro
