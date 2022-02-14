@@ -8,6 +8,7 @@ import { CriarProdutoController } from './CriarProdutoController';
 import { CriarUsuarioController } from './CriarUsuarioController';
 import { SalvarCarrinhoController } from './SalvarCarrinhoController';
 import { SalvarFavoritoController } from './SalvarFavoritoController';
+import { SalvarPedidoController } from './SalvarPedidoController';
 
 export {
   CriarUsuarioController,
@@ -20,4 +21,5 @@ export {
   BuscarCarrinhoController,
   SalvarFavoritoController,
   BuscarFavoritoController,
+  SalvarPedidoController,
 };

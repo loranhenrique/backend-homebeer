@@ -10,6 +10,7 @@ import {
   criarUsuarioModule,
   salvarCarrinhoModule,
   salvarFavoritoModule,
+  salvarPedidoModule,
 } from '@server';
 import { Router } from 'express';
 
@@ -25,5 +26,6 @@ router.post('/carrinho', expressAdapter(salvarCarrinhoModule));
 router.get('/carrinho', expressAdapter(buscarCarrinhoModule));
 router.post('/favorito', expressAdapter(salvarFavoritoModule));
 router.get('/favorito', expressAdapter(buscarFavoritoModule));
+router.post('/pedido', expressAdapter(salvarPedidoModule));
 
 export { router };

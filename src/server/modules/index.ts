@@ -8,6 +8,7 @@ import { criarProdutoModule } from './CriarProdutoModule';
 import { criarUsuarioModule } from './CriarUsuarioModule';
 import { salvarCarrinhoModule } from './SalvarCarrinhoModule';
 import { salvarFavoritoModule } from './SalvarFavoritoModule';
+import { salvarPedidoModule } from './SalvarPedidoModule';
 
 export {
   criarUsuarioModule,
@@ -20,4 +21,5 @@ export {
   buscarCarrinhoModule,
   salvarFavoritoModule,
   buscarFavoritoModule,
+  salvarPedidoModule,
 };

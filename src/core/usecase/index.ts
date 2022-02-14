@@ -8,6 +8,7 @@ import CriarProdutoUseCase from './CriarProdutoUseCase';
 import CriarUsuarioUseCase from './CriarUsuarioUseCase';
 import SalvarCarrinhoUseCase from './SalvarCarrinhoUseCase';
 import SalvarFavoritoUseCase from './SalvarFavoritoUseCase';
+import SalvarPedidoUseCase from './SalvarPedidoUseCase';
 
 export {
   CriarUsuarioUseCase,
@@ -20,4 +21,5 @@ export {
   BuscarCarrinhoUseCase,
   SalvarFavoritoUseCase,
   BuscarFavoritoUseCase,
+  SalvarPedidoUseCase,
 };

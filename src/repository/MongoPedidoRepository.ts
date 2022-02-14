@@ -16,16 +16,16 @@ export class MongoPedidoRepository implements IPedidoBoundary {
   }
 
   public async buscarPedido(idUsuario: string): Promise<PedidoEntity> {
-    const Pedido: IPedido[] = await PedidoModel.find({ usuario: idUsuario })
+    const pedidos: IPedido[] = await PedidoModel.find({ usuario: idUsuario })
       .populate('usuario')
       .populate('produto')
       .populate('parceiro');
 
-    if (Pedido.length < 1) return { idUsuario, compras: [] };
+    if (pedidos.length < 1) return { idUsuario, compras: [] };
 
     return {
       idUsuario: idUsuario,
-      compras: this.criarCompras(Pedido),
+      compras: this.criarCompras(pedidos),
     };
   }
 
@@ -38,8 +38,8 @@ export class MongoPedidoRepository implements IPedidoBoundary {
     });
   }
 
-  private criarCompras(Pedido: IPedido[]): CompraEntity[] {
-    return Pedido.map((item: IPedido) => ({
+  private criarCompras(pedidos: IPedido[]): CompraEntity[] {
+    return pedidos.map((item: IPedido) => ({
       idParceiro: item.parceiro._id,
       ativoParceiro: item.parceiro.ativo,
       imagemParceiro: item.parceiro.imagemLoja,
