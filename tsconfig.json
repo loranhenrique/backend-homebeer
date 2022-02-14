@@ -30,7 +30,8 @@
       "@repository": ["src/repository/index.ts"],
       "@adapter": ["src/adapter/index.ts"],
       "@providers": ["src/providers/index.ts"],
-      "@server": ["src/server/index.ts"]
+      "@server": ["src/server/index.ts"],
+      "@config": ["src/config/index.ts"]
     },
     "lib": [
       "es5",
