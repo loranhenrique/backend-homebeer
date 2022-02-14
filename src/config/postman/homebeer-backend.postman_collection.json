@@ -23,12 +23,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/usuario/autenticar",
-							"protocol": "http",
+							"raw": "{{localhost}}/usuario/autenticar",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
-							"port": "3333",
 							"path": [
 								"usuario",
 								"autenticar"
@@ -52,12 +50,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/usuario/registrar",
-							"protocol": "http",
+							"raw": "{{localhost}}/usuario/registrar",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
-							"port": "3333",
 							"path": [
 								"usuario",
 								"registrar"
@@ -86,12 +82,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/parceiro",
-							"protocol": "http",
+							"raw": "{{localhost}}/parceiro",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
-							"port": "3333",
 							"path": [
 								"parceiro"
 							]
@@ -105,12 +99,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/parceiro",
-							"protocol": "http",
+							"raw": "{{localhost}}/parceiro",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
-							"port": "3333",
 							"path": [
 								"parceiro"
 							]
@@ -138,12 +130,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/produto",
-							"protocol": "http",
+							"raw": "{{localhost}}/produto",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
-							"port": "3333",
 							"path": [
 								"produto"
 							]
@@ -157,12 +147,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/produto?idParceiro=6bc3d22e-ddfe-42d0-b288-a1fd713d2db4",
-							"protocol": "http",
+							"raw": "{{localhost}}/produto?idParceiro=6bc3d22e-ddfe-42d0-b288-a1fd713d2db4",
 							"host": [
-								"localhost"
+								"{{localhost}}"
 							],
-							"port": "3333",
 							"path": [
 								"produto"
 							],
@@ -177,6 +165,141 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "/carrinho",
+			"item": [
+				{
+					"name": "/carrinho",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idUsuario\": \"f99efdb2-6964-4aeb-8e05-7cff42670bc3\",\n    \"idProduto\": \"72554898-6f64-452d-8262-2b8a99e76385\",\n    \"idParceiro\": \"6bc3d22e-ddfe-42d0-b288-a1fd713d2db4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/carrinho",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"carrinho"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/carrinho",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/carrinho?idUsuario=f99efdb2-6964-4aeb-8e05-7cff42670bc3",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"carrinho"
+							],
+							"query": [
+								{
+									"key": "idUsuario",
+									"value": "f99efdb2-6964-4aeb-8e05-7cff42670bc3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/favorito",
+			"item": [
+				{
+					"name": "/favorito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idUsuario\": \"f99efdb2-6964-4aeb-8e05-7cff42670bc3\",\n    \"idParceiro\": \"6bc3d22e-ddfe-42d0-b288-a1fd713d2db4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/favorito",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"favorito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/favorito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/favorito?idUsuario=f99efdb2-6964-4aeb-8e05-7cff42670bc3",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"favorito"
+							],
+							"query": [
+								{
+									"key": "idUsuario",
+									"value": "f99efdb2-6964-4aeb-8e05-7cff42670bc3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost:3333",
+			"type": "string"
 		}
 	]
 }
