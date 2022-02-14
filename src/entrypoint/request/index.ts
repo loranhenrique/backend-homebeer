@@ -5,6 +5,7 @@ import { ICriarProdutoRequest } from './ICriarProdutoRequest';
 import { ICriarUsuarioRequest } from './ICriarUsuarioRequest';
 import { ISalvarCarrinhoRequest } from './ISalvarCarrinhoRequest';
 import { IUsuarioRequest } from './IUsuarioRequest';
+import { ISalvarFavoritoRequest } from './ISalvarFavoritoRequest';
 
 export {
   ICriarUsuarioRequest,
@@ -14,4 +15,5 @@ export {
   ICriarProdutoRequest,
   ISalvarCarrinhoRequest,
   IUsuarioRequest,
+  ISalvarFavoritoRequest,
 };

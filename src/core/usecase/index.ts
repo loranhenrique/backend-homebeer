@@ -6,6 +6,7 @@ import CriarParceiroUseCase from './CriarParceiroUseCase';
 import CriarProdutoUseCase from './CriarProdutoUseCase';
 import CriarUsuarioUseCase from './CriarUsuarioUseCase';
 import SalvarCarrinhoUseCase from './SalvarCarrinhoUseCase';
+import SalvarFavoritoUseCase from './SalvarFavoritoUseCase';
 
 export {
   CriarUsuarioUseCase,
@@ -16,4 +17,5 @@ export {
   BuscarProdutoUseCase,
   SalvarCarrinhoUseCase,
   BuscarCarrinhoUseCase,
+  SalvarFavoritoUseCase,
 };

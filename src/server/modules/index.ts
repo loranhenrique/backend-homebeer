@@ -6,6 +6,7 @@ import { criarParceiroModule } from './CriarParceiroModule';
 import { criarProdutoModule } from './CriarProdutoModule';
 import { criarUsuarioModule } from './CriarUsuarioModule';
 import { salvarCarrinhoModule } from './SalvarCarrinhoModule';
+import { salvarFavoritoModule } from './SalvarFavoritoModule';
 
 export {
   criarUsuarioModule,
@@ -16,4 +17,5 @@ export {
   buscarProdutoModule,
   salvarCarrinhoModule,
   buscarCarrinhoModule,
+  salvarFavoritoModule,
 };
