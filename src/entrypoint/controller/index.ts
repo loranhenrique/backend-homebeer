@@ -1,5 +1,6 @@
 import { AutenticarUsuarioController } from './AutenticarUsuarioController';
 import { BuscarCarrinhoController } from './BuscarCarrinhoController';
+import { BuscarFavoritoController } from './BuscarFavoritoController';
 import { BuscarParceiroController } from './BuscarParceiroController';
 import { BuscarProdutoController } from './BuscarProdutoController';
 import { CriarParceiroController } from './CriarParceiroController';
@@ -18,4 +19,5 @@ export {
   SalvarCarrinhoController,
   BuscarCarrinhoController,
   SalvarFavoritoController,
+  BuscarFavoritoController,
 };

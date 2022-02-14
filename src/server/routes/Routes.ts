@@ -2,15 +2,16 @@ import { expressAdapter } from '@adapter';
 import {
   autenticarUsuarioModule,
   buscarCarrinhoModule,
+  buscarFavoritoModule,
   buscarParceiroModule,
   buscarProdutoModule,
   criarParceiroModule,
   criarProdutoModule,
   criarUsuarioModule,
   salvarCarrinhoModule,
+  salvarFavoritoModule,
 } from '@server';
 import { Router } from 'express';
-import { salvarFavoritoModule } from '../modules';
 
 const router = Router();
 
@@ -23,5 +24,6 @@ router.get('/produto', expressAdapter(buscarProdutoModule));
 router.post('/carrinho', expressAdapter(salvarCarrinhoModule));
 router.get('/carrinho', expressAdapter(buscarCarrinhoModule));
 router.post('/favorito', expressAdapter(salvarFavoritoModule));
+router.get('/favorito', expressAdapter(buscarFavoritoModule));
 
 export { router };

@@ -1,5 +1,6 @@
 import AutenticarUsuarioUseCase from './AutenticarUsuarioUseCase';
 import BuscarCarrinhoUseCase from './BuscarCarrinhoUseCase';
+import BuscarFavoritoUseCase from './BuscarFavoritoUseCase';
 import BuscarParceiroUseCase from './BuscarParceiroUseCase';
 import BuscarProdutoUseCase from './BuscarProdutoUseCase';
 import CriarParceiroUseCase from './CriarParceiroUseCase';
@@ -18,4 +19,5 @@ export {
   SalvarCarrinhoUseCase,
   BuscarCarrinhoUseCase,
   SalvarFavoritoUseCase,
+  BuscarFavoritoUseCase,
 };
