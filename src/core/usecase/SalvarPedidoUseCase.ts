@@ -34,41 +34,60 @@ export default class SalvarPedidoUseCase {
     let erroParceiro = '';
     let erroProduto = '';
 
-    iPedidoRequest.forEach(async (pedidoRequest: IPedidoRequest) => {
-      [erroUsuario, erroParceiro, erroProduto] = await Promise.all([
-        this.validarUsuario(pedidoRequest.idUsuario),
-        this.validarParceiro(pedidoRequest.idParceiro),
-        this.validarProduto(pedidoRequest.idParceiro, pedidoRequest.idProduto),
-      ]);
-    });
+    for (const pedido of iPedidoRequest) {
+      const usuario: UsuarioEntity = await this.iUsuarioBoundary.buscarUsuario(null, pedido.idUsuario);
+
+      if (!usuario) {
+        erroUsuario = 'Usuario não encontrado.';
+        continue;
+      }
+
+      if (!usuario.ativo) {
+        erroUsuario = 'Usuario está inativo.';
+        continue;
+      }
+    }
 
     if (erroUsuario) return erroUsuario;
+
+    for (const pedido of iPedidoRequest) {
+      const parceiros: ParceiroEntity[] = await this.iParceiroBoundary.buscarParceiro();
+      const parceiroEncontrado: ParceiroEntity = parceiros.find(
+        (parceiro: ParceiroEntity) => parceiro.id === pedido.idParceiro,
+      );
+
+      if (!parceiroEncontrado) {
+        erroParceiro = 'Parceiro não foi encontrado.';
+        continue;
+      }
+
+      if (!parceiroEncontrado.ativo) {
+        erroParceiro = 'Parceiro está inativo.';
+        continue;
+      }
+    }
+
     if (erroParceiro) return erroParceiro;
+
+    for (const pedido of iPedidoRequest) {
+      const produtos: ProdutoEntity[] = await this.iProdutoBoundary.buscarProduto(pedido.idParceiro);
+      const produtoEncontrado: ProdutoEntity = produtos.find(
+        (produto: ProdutoEntity) => produto.id === pedido.idProduto,
+      );
+
+      if (!produtoEncontrado) {
+        erroProduto = 'Produto não encontrado.';
+        continue;
+      }
+
+      if (!produtoEncontrado.ativo) {
+        erroProduto = 'Produto está inativo.';
+        continue;
+      }
+    }
+
     if (erroProduto) return erroProduto;
 
-    return '';
-  }
-
-  private async validarUsuario(idUsuario: string): Promise<string> {
-    const usuario: UsuarioEntity = await this.iUsuarioBoundary.buscarUsuario(null, idUsuario);
-    if (!usuario) return 'Usuario não encontrado.';
-    if (!usuario.ativo) return 'Usuario está inativo.';
-    return '';
-  }
-
-  private async validarParceiro(idParceiro: string): Promise<string> {
-    const parceiros: ParceiroEntity[] = await this.iParceiroBoundary.buscarParceiro();
-    const parceiroEncontrado: ParceiroEntity = parceiros.find((parceiro: ParceiroEntity) => parceiro.id === idParceiro);
-    if (!parceiroEncontrado) return 'Parceiro não foi encontrado.';
-    if (!parceiroEncontrado.ativo) return 'Parceiro está inativo.';
-    return '';
-  }
-
-  private async validarProduto(idParceiro: string, idProduto: string): Promise<string> {
-    const produtos: ProdutoEntity[] = await this.iProdutoBoundary.buscarProduto(idParceiro);
-    const produtoEncontrado: ProdutoEntity = produtos.find((produto: ProdutoEntity) => produto.id === idProduto);
-    if (!produtoEncontrado) return 'Produto não encontrado.';
-    if (!produtoEncontrado.ativo) return 'Produto está inativo.';
     return '';
   }
 }
