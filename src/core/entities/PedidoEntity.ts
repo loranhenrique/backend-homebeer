@@ -1,8 +1,16 @@
-import { CompraEntity } from '@core';
-
 export default class PedidoEntity {
-  public readonly idUsuario: string;
-  public compras: CompraEntity[];
+  public identificadorPedido: string;
+  public idParceiro: string;
+  public ativoParceiro: boolean;
+  public imagemParceiro: string;
+  public nomeParceiro: string;
+  public idProduto: string;
+  public ativoProduto: boolean;
+  public nomeProduto: string;
+  public descricaoProduto: string;
+  public imagemProduto: string;
+  public precoProduto: number;
+  public status: string;
 
   public constructor(props: Partial<PedidoEntity>) {
     Object.assign(this, props);

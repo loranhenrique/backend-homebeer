@@ -2,6 +2,7 @@ import { autenticarUsuarioModule } from './AutenticarUsuarioModule';
 import { buscarCarrinhoModule } from './BuscarCarrinhoModule';
 import { buscarFavoritoModule } from './BuscarFavoritoModule';
 import { buscarParceiroModule } from './BuscarParceiroModule';
+import { buscarPedidoModule } from './BuscarPedidoModule';
 import { buscarProdutoModule } from './BuscarProdutoModule';
 import { criarParceiroModule } from './CriarParceiroModule';
 import { criarProdutoModule } from './CriarProdutoModule';
@@ -22,4 +23,5 @@ export {
   salvarFavoritoModule,
   buscarFavoritoModule,
   salvarPedidoModule,
+  buscarPedidoModule,
 };

@@ -1,5 +1,5 @@
 import { StatusCompraConstantes } from '@config';
-import { PedidoEntity, CompraEntity, IPedidoBoundary } from '@core';
+import { PedidoEntity, IPedidoBoundary } from '@core';
 import { PedidoModel, IPedido } from '@database';
 
 export class MongoPedidoRepository implements IPedidoBoundary {
@@ -15,31 +15,16 @@ export class MongoPedidoRepository implements IPedidoBoundary {
     );
   }
 
-  public async buscarPedido(idUsuario: string): Promise<PedidoEntity> {
+  public async buscarPedido(idUsuario: string): Promise<PedidoEntity[]> {
     const pedidos: IPedido[] = await PedidoModel.find({ usuario: idUsuario })
       .populate('usuario')
       .populate('produto')
       .populate('parceiro');
 
-    if (pedidos.length < 1) return { idUsuario, compras: [] };
+    if (pedidos.length < 1) return [];
 
-    return {
-      idUsuario: idUsuario,
-      compras: this.criarCompras(pedidos),
-    };
-  }
-
-  public async salvarPedido(idUsuario: string, idProduto: string, idParceiro: string): Promise<void> {
-    await PedidoModel.create({
-      usuario: idUsuario,
-      produto: idProduto,
-      parceiro: idParceiro,
-      status: StatusCompraConstantes.AGUARDANDO_PAGAMENTO,
-    });
-  }
-
-  private criarCompras(pedidos: IPedido[]): CompraEntity[] {
     return pedidos.map((item: IPedido) => ({
+      identificadorPedido: item.identificadorPedido,
       idParceiro: item.parceiro._id,
       ativoParceiro: item.parceiro.ativo,
       imagemParceiro: item.parceiro.imagemLoja,
@@ -52,5 +37,15 @@ export class MongoPedidoRepository implements IPedidoBoundary {
       precoProduto: item.produto.preco,
       status: item.status,
     }));
+  }
+
+  public async salvarPedido(idUsuario: string, idProduto: string, idParceiro: string, idPedido: string): Promise<void> {
+    await PedidoModel.create({
+      identificadorPedido: idPedido,
+      usuario: idUsuario,
+      produto: idProduto,
+      parceiro: idParceiro,
+      status: StatusCompraConstantes.AGUARDANDO_PAGAMENTO,
+    });
   }
 }

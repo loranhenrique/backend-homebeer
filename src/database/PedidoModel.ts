@@ -14,6 +14,7 @@ const PedidoSchema: Schema = new Schema({
     type: Schema.Types.String,
     ref: ParceiroModel,
   },
+  identificadorPedido: String,
   status: String,
 });
 

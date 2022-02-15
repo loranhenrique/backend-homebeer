@@ -4,6 +4,7 @@ import {
   buscarCarrinhoModule,
   buscarFavoritoModule,
   buscarParceiroModule,
+  buscarPedidoModule,
   buscarProdutoModule,
   criarParceiroModule,
   criarProdutoModule,
@@ -27,5 +28,6 @@ router.get('/carrinho', expressAdapter(buscarCarrinhoModule));
 router.post('/favorito', expressAdapter(salvarFavoritoModule));
 router.get('/favorito', expressAdapter(buscarFavoritoModule));
 router.post('/pedido', expressAdapter(salvarPedidoModule));
+router.get('/pedido', expressAdapter(buscarPedidoModule));
 
 export { router };

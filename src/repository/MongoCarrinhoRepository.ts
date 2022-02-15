@@ -1,4 +1,3 @@
-import { StatusCompraConstantes } from '@config';
 import { CarrinhoEntity, CompraEntity, ICarrinhoBoundary } from '@core';
 import { CarrinhoModel, ICarrinho } from '@database';
 
@@ -33,7 +32,6 @@ export class MongoCarrinhoRepository implements ICarrinhoBoundary {
     return carrinho.map((item: ICarrinho) => ({
       idParceiro: item.parceiro._id,
       ativoParceiro: item.parceiro.ativo,
-      imagemParceiro: item.parceiro.imagemLoja,
       nomeParceiro: item.parceiro.nomeLoja,
       idProduto: item.produto._id,
       ativoProduto: item.produto.ativo,
@@ -41,7 +39,6 @@ export class MongoCarrinhoRepository implements ICarrinhoBoundary {
       descricaoProduto: item.produto.descricao,
       imagemProduto: item.produto.imagem,
       precoProduto: item.produto.preco,
-      status: StatusCompraConstantes.CARRINHO,
     }));
   }
 }

@@ -7,6 +7,7 @@ import {
   ProdutoEntity,
   UsuarioEntity,
 } from '@core';
+import { v4 as uuidv4 } from 'uuid';
 import { IPedidoRequest } from '@entrypoint';
 
 export default class SalvarPedidoUseCase {
@@ -21,13 +22,11 @@ export default class SalvarPedidoUseCase {
     const existeErro: string = await this.validarCompra(iPedidosRequest);
     if (existeErro) throw new Error(existeErro);
 
-    iPedidosRequest.forEach(async (iPedidoRequest: IPedidoRequest) => {
-      await this.iPedidoBoundary.salvarPedido(
-        iPedidoRequest.idUsuario,
-        iPedidoRequest.idProduto,
-        iPedidoRequest.idParceiro,
-      );
-    });
+    const idPedido = uuidv4();
+
+    for (const pedido of iPedidosRequest) {
+      await this.iPedidoBoundary.salvarPedido(pedido.idUsuario, pedido.idProduto, pedido.idParceiro, idPedido);
+    }
   }
 
   private async validarCompra(iPedidoRequest: IPedidoRequest[]): Promise<string> {
