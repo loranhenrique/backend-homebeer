@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"loranteixeira@icloud.com\",\n    \"senha\": \"123456\"\n}",
+							"raw": "{\n    \"email\": \"loranteixeira@gmail.com\",\n    \"senha\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -122,7 +122,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"idParceiro\": \"6bc3d22e-ddfe-42d0-b288-a1fd713d2db4\",\n    \"imagem\": \"imagem/base64\",\n    \"nome\": \"Cerveja artesanal teste\",\n    \"descricao\": \"Descricao da cerveja artesanal teste\",\n    \"preco\": 21.90\n}\n",
+							"raw": "{\n    \"idParceiro\": \"8ced06df-b44b-404c-9bed-00e1473c13f6\",\n    \"imagem\": \"imagem/base64\",\n    \"nome\": \"Cerveja artesanal novo parceiro\",\n    \"descricao\": \"Descricao da cerveja artesanal teste\",\n    \"preco\": 31.90\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -147,7 +147,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localhost}}/produto?idParceiro=6bc3d22e-ddfe-42d0-b288-a1fd713d2db4",
+							"raw": "{{localhost}}/produto?idParceiro=8ced06df-b44b-404c-9bed-00e1473c13f6",
 							"host": [
 								"{{localhost}}"
 							],
@@ -157,7 +157,7 @@
 							"query": [
 								{
 									"key": "idParceiro",
-									"value": "6bc3d22e-ddfe-42d0-b288-a1fd713d2db4"
+									"value": "8ced06df-b44b-404c-9bed-00e1473c13f6"
 								}
 							]
 						}
@@ -273,6 +273,60 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "/pedido",
+			"item": [
+				{
+					"name": "/pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"idUsuario\": \"f99efdb2-6964-4aeb-8e05-7cff42670bc3\",\n        \"idProduto\": \"72554898-6f64-452d-8262-2b8a99e76385\",\n        \"idParceiro\": \"6bc3d22e-ddfe-42d0-b288-a1fd713d2db4\"\n    },\n    {\n        \"idUsuario\": \"f99efdb2-6964-4aeb-8e05-7cff42670bc3\",\n        \"idProduto\": \"e17dfdc7-704a-4e96-a5a2-d59bbc91fc44\",\n        \"idParceiro\": \"8ced06df-b44b-404c-9bed-00e1473c13f6\"\n    },\n        {\n        \"idUsuario\": \"f99efdb2-6964-4aeb-8e05-7cff42670bc3\",\n        \"idProduto\": \"72554898-6f64-452d-8262-2b8a99e76385\",\n        \"idParceiro\": \"6bc3d22e-ddfe-42d0-b288-a1fd713d2db4\"\n    },\n    {\n        \"idUsuario\": \"f99efdb2-6964-4aeb-8e05-7cff42670bc3\",\n        \"idProduto\": \"e17dfdc7-704a-4e96-a5a2-d59bbc91fc44\",\n        \"idParceiro\": \"8ced06df-b44b-404c-9bed-00e1473c13f6\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/pedido",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/pedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/pedido?idUsuario=f99efdb2-6964-4aeb-8e05-7cff42670bc3",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"pedido"
+							],
+							"query": [
+								{
+									"key": "idUsuario",
+									"value": "f99efdb2-6964-4aeb-8e05-7cff42670bc3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -298,7 +352,7 @@
 	"variable": [
 		{
 			"key": "localhost",
-			"value": "http://localhost:3333",
+			"value": "http://localhost:3333/api",
 			"type": "string"
 		}
 	]
