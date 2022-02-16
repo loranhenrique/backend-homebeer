@@ -17,17 +17,17 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.post('/usuario/registrar', expressAdapter(criarUsuarioModule));
-router.post('/usuario/autenticar', expressAdapter(autenticarUsuarioModule));
-router.post('/parceiro', expressAdapter(criarParceiroModule));
-router.get('/parceiro', expressAdapter(buscarParceiroModule));
-router.post('/produto', expressAdapter(criarProdutoModule));
-router.get('/produto', expressAdapter(buscarProdutoModule));
-router.post('/carrinho', expressAdapter(salvarCarrinhoModule));
-router.get('/carrinho', expressAdapter(buscarCarrinhoModule));
-router.post('/favorito', expressAdapter(salvarFavoritoModule));
-router.get('/favorito', expressAdapter(buscarFavoritoModule));
-router.post('/pedido', expressAdapter(salvarPedidoModule));
-router.get('/pedido', expressAdapter(buscarPedidoModule));
+router.post('/api/usuario/registrar', expressAdapter(criarUsuarioModule));
+router.post('/api/usuario/autenticar', expressAdapter(autenticarUsuarioModule));
+router.post('/api/parceiro', expressAdapter(criarParceiroModule));
+router.get('/api/parceiro', expressAdapter(buscarParceiroModule));
+router.post('/api/produto', expressAdapter(criarProdutoModule));
+router.get('/api/produto', expressAdapter(buscarProdutoModule));
+router.post('/api/carrinho', expressAdapter(salvarCarrinhoModule));
+router.get('/api/carrinho', expressAdapter(buscarCarrinhoModule));
+router.post('/api/favorito', expressAdapter(salvarFavoritoModule));
+router.get('/api/favorito', expressAdapter(buscarFavoritoModule));
+router.post('/api/pedido', expressAdapter(salvarPedidoModule));
+router.get('/api/pedido', expressAdapter(buscarPedidoModule));
 
 export { router };
