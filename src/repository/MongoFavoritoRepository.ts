@@ -38,6 +38,7 @@ export class MongoFavoritoRepository implements IFavoritoBoundary {
       nomeLoja: itemFavorito.parceiro.nomeLoja,
       descricaoLoja: itemFavorito.parceiro.descricaoLoja,
       cnpj: itemFavorito.parceiro.cnpj,
+      categoria: itemFavorito.parceiro.categoria,
     }));
   }
 }

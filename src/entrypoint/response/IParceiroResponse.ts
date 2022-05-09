@@ -6,4 +6,5 @@ export interface IParceiroResponse {
   imagemLoja: string;
   nomeLoja: string;
   descricaoLoja: string;
+  categoria: string;
 }

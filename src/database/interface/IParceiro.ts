@@ -9,4 +9,5 @@ export interface IParceiro {
   nomeLoja: string;
   descricaoLoja: string;
   cnpj: number;
+  categoria: string;
 }

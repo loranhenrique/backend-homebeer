@@ -15,6 +15,7 @@ export class BuscarParceiroController {
       imagemLoja: parceiro.imagemLoja,
       nomeLoja: parceiro.nomeLoja,
       descricaoLoja: parceiro.descricaoLoja,
+      categoria: parceiro.categoria,
     }));
   }
 }

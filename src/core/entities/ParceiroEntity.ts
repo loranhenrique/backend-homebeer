@@ -11,6 +11,7 @@ export default class ParceiroEntity {
   public nomeLoja: string;
   public descricaoLoja: string;
   public cnpj: number;
+  public categoria: string;
 
   public constructor(props: Partial<ParceiroEntity>) {
     Object.assign(this, props);
@@ -25,6 +26,7 @@ export default class ParceiroEntity {
     nomeLoja,
     descricaoLoja,
     cnpj,
+    categoria,
   }: Partial<ParceiroEntity>): ParceiroEntity {
     return new ParceiroEntity({
       nomeCompletoDono,
@@ -35,6 +37,7 @@ export default class ParceiroEntity {
       nomeLoja,
       descricaoLoja,
       cnpj,
+      categoria,
       ativo: true,
       id: uuidv4(),
     });

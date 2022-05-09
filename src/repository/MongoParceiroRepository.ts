@@ -18,6 +18,7 @@ export class MongoParceiroRepository implements IParceiroBoundary {
       nomeLoja: parceiro.nomeLoja,
       descricaoLoja: parceiro.descricaoLoja,
       cnpj: parceiro.cnpj,
+      categoria: parceiro.categoria,
     }));
   }
 

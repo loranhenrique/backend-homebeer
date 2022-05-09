@@ -7,4 +7,5 @@ export interface ICriarParceiroRequest {
   nomeLoja: string;
   descricaoLoja: string;
   cnpj: number;
+  categoria: string;
 }

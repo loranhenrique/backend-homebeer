@@ -1,9 +1,6 @@
+import { IParceiroResponse } from '@entrypoint';
+
 export interface IFavoritoResponse {
   idUsuario: string;
-  favoritos: Array<{
-    idParceiro: string;
-    imagemParceiro: string;
-    nomeParceiro: string;
-    descricaoParceiro: string;
-  }>;
+  favoritos: IParceiroResponse[];
 }

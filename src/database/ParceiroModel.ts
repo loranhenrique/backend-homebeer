@@ -12,6 +12,7 @@ const ParceiroSchema: Schema = new Schema({
   nomeLoja: String,
   descricaoLoja: String,
   cnpj: Number,
+  categoria: String,
 });
 
 export default model<IParceiro>('ParceiroModel', ParceiroSchema);

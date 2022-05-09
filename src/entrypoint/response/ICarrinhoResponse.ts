@@ -8,5 +8,6 @@ export interface ICarrinhoResponse {
     descricaoProduto: string;
     imagemProduto: string;
     precoProduto: number;
+    quantidade: number;
   }>;
 }
