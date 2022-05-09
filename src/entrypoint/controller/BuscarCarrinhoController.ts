@@ -4,17 +4,14 @@ import { ICarrinhoResponse, IUsuarioRequest } from '@entrypoint';
 export class BuscarCarrinhoController {
   public constructor(private usecase: BuscarCarrinhoUseCase) {}
 
-  public async handle(queryParams: IUsuarioRequest): Promise<ICarrinhoResponse> {
+  public async handle(queryParams: IUsuarioRequest): Promise<ICarrinhoResponse[]> {
     const idUsuario: string = queryParams.idUsuario;
     const carrinho: CarrinhoEntity = await this.usecase.execute(idUsuario);
 
-    return {
-      idUsuario: carrinho.idUsuario,
-      compras: carrinho.compras ? this.construirCompras(carrinho.compras) : [],
-    };
+    return this.construirCompras(carrinho.compras);
   }
 
-  private construirCompras(compras: CompraEntity[]): any {
+  private construirCompras(compras: CompraEntity[]): ICarrinhoResponse[] {
     const comprasAgrupadas = [];
 
     compras.forEach((compra: CompraEntity) => {
