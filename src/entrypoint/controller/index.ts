@@ -7,6 +7,7 @@ import { BuscarProdutoController } from './BuscarProdutoController';
 import { CriarParceiroController } from './CriarParceiroController';
 import { CriarProdutoController } from './CriarProdutoController';
 import { CriarUsuarioController } from './CriarUsuarioController';
+import { DeletarCarrinhoController } from './DeletarCarrinhoController';
 import { SalvarCarrinhoController } from './SalvarCarrinhoController';
 import { SalvarFavoritoController } from './SalvarFavoritoController';
 import { SalvarPedidoController } from './SalvarPedidoController';
@@ -24,4 +25,5 @@ export {
   BuscarFavoritoController,
   SalvarPedidoController,
   BuscarPedidoController,
+  DeletarCarrinhoController,
 };

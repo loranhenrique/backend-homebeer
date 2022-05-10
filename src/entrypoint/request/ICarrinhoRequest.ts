@@ -1,4 +1,4 @@
-export interface ISalvarCarrinhoRequest {
+export interface ICarrinhoRequest {
   idUsuario: string;
   idProduto: string;
   idParceiro: string;

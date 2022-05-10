@@ -7,6 +7,7 @@ import BuscarProdutoUseCase from './BuscarProdutoUseCase';
 import CriarParceiroUseCase from './CriarParceiroUseCase';
 import CriarProdutoUseCase from './CriarProdutoUseCase';
 import CriarUsuarioUseCase from './CriarUsuarioUseCase';
+import DeletarCarrinhoUseCase from './DeletarCarrinhoUseCase';
 import SalvarCarrinhoUseCase from './SalvarCarrinhoUseCase';
 import SalvarFavoritoUseCase from './SalvarFavoritoUseCase';
 import SalvarPedidoUseCase from './SalvarPedidoUseCase';
@@ -24,4 +25,5 @@ export {
   BuscarFavoritoUseCase,
   SalvarPedidoUseCase,
   BuscarPedidoUseCase,
+  DeletarCarrinhoUseCase,
 };
