@@ -23,7 +23,11 @@ export class MongoFavoritoRepository implements IFavoritoBoundary {
   }
 
   public async salvarFavorito(idUsuario: string, idParceiro: string): Promise<void> {
-    await FavoritoModel.create({ usuario: idUsuario, parceiro: idParceiro });
+    const favoritoEcontrado = await FavoritoModel.findOne({ usuario: idUsuario, parceiro: idParceiro });
+
+    if (!favoritoEcontrado) {
+      await FavoritoModel.create({ usuario: idUsuario, parceiro: idParceiro });
+    }
   }
 
   private criarFavoritos(favoritos: IFavorito[]): ParceiroEntity[] {
