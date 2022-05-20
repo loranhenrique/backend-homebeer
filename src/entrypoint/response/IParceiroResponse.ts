@@ -7,4 +7,5 @@ export interface IParceiroResponse {
   nomeLoja: string;
   descricaoLoja: string;
   categoria: string;
+  favorito?: boolean;
 }
