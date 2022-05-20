@@ -1,6 +1,6 @@
 import { StatusCompraConstantes } from '@config';
 import { PedidoEntity, IPedidoBoundary } from '@core';
-import { PedidoModel, IPedido } from '@database';
+import { PedidoModel, IPedido, CarrinhoModel } from '@database';
 
 export class MongoPedidoRepository implements IPedidoBoundary {
   public async deletarPedido(idUsuario: string, idParceiro: string): Promise<void> {
@@ -46,6 +46,12 @@ export class MongoPedidoRepository implements IPedidoBoundary {
       produto: idProduto,
       parceiro: idParceiro,
       status: StatusCompraConstantes.AGUARDANDO_PAGAMENTO,
+    });
+
+    await CarrinhoModel.findOneAndDelete({
+      usuario: idUsuario,
+      produto: idProduto,
+      parceiro: idParceiro,
     });
   }
 }
