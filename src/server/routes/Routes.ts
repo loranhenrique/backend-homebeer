@@ -32,4 +32,8 @@ router.get('/api/favorito', expressAdapter(buscarFavoritoModule));
 router.post('/api/pedido', expressAdapter(salvarPedidoModule));
 router.get('/api/pedido', expressAdapter(buscarPedidoModule));
 
+router.get('/', function(req, res) {
+  res.send('Olá, bem vindo à API do homebeer!');
+});
+
 export { router };

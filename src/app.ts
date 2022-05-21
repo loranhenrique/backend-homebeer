@@ -6,7 +6,7 @@ import { router } from '@server';
 
 class App {
   private express: express.Express;
-  private port = 3333;
+  private port = process.env.PORT || 3333;
 
   public constructor() {
     this.express = express();
